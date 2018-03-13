@@ -2,15 +2,16 @@ package stud.mandatory.tictactoe.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-import stud.mandatory.tictactoe.model.Square;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import stud.mandatory.tictactoe.model.Account;
 import stud.mandatory.tictactoe.model.AccountV;
 import stud.mandatory.tictactoe.repositories.AccountDbRepository;
 import stud.mandatory.tictactoe.repositories.iAccountRepository;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 @Controller
 public class TicTacToeController {
@@ -28,6 +29,7 @@ public class TicTacToeController {
     NO_GAME - initial state after logging in
     GAME_IN_PROGRESS - a game is currently in progress
     GAME_ENDED - game ended
+    -A cheap equivalent to a finite state machine
      */
     private String gameState = "NO_GAME";
 
@@ -137,8 +139,16 @@ public class TicTacToeController {
     }
     @PostMapping("/login")
     public String login(@ModelAttribute Account userAccount){
-        //returns null if the account is not in the database
-        currentAccount = accountRepository.read(userAccount);
+
+        //temporary workaround for the database inactivity issue
+        if(userAccount.getNickname().equals("getConnection")){
+            accountRepository = new AccountDbRepository();
+            System.out.println("ACCOUNT REPOSITORY REINITIALIZED");
+        }
+        else {
+            //returns null if the account is not in the database
+            currentAccount = accountRepository.read(userAccount);
+        }
         return "redirect:/";
     }
 

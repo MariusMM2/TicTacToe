@@ -1,7 +1,8 @@
 package stud.mandatory.tictactoe.repositories;
 
-import stud.mandatory.tictactoe.repositories.util.DBConnection;
 import stud.mandatory.tictactoe.model.Account;
+import stud.mandatory.tictactoe.repositories.util.DBConnection;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

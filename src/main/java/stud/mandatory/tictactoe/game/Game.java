@@ -1,8 +1,8 @@
 package stud.mandatory.tictactoe.game;
 
 import stud.mandatory.tictactoe.game.board.Board;
-import stud.mandatory.tictactoe.model.Square;
 import stud.mandatory.tictactoe.game.players.Player;
+import stud.mandatory.tictactoe.model.Square;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -56,7 +56,7 @@ public class Game {
 	//makes a computer controlled turn,
 	private int makeAITurn(){
 		Random rand = new Random();
-		//gets a random integer from 0 to 9 until an empty square is found,
+		//gets a random integer from 0 to 8 until an empty square with that number as id is found,
 		//then place the tag there
 		while(!board.placeTag(currentPlayer, rand.nextInt(9)));
 		switchPlayer();

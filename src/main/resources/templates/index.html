@@ -45,8 +45,9 @@
                 </p>
 
                 <p class="form-btn-wrapper">
-                    <a href="" th:if="${gameState} != 'GAME_ENDED'"><button class="form-btn disabled">Play Again</button></a>
-                    <a href="/restart" th:if="${gameState} == 'GAME_ENDED'"><button class="form-btn">Play Again</button></a>
+                    <a th:href="${gameState} == 'GAME_ENDED' ? '/restart'">
+                        <button th:class="${gameState} == 'GAME_ENDED' ? 'form-btn' : 'form-btn disabled'">New Game</button>
+                    </a>
                 </p>
             </div>
         </div>

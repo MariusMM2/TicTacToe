@@ -5,7 +5,7 @@
 
 	<groupId>stud.mandatory</groupId>
 	<artifactId>tictactoe</artifactId>
-	<version>1.0.0-BETA</version>
+	<version>1.0.1-FINAL</version>
 	<packaging>jar</packaging>
 
 	<name>tictactoe</name>

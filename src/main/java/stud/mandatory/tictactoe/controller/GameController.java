@@ -1,10 +1,10 @@
 package stud.mandatory.tictactoe.controller;
 
 import stud.mandatory.tictactoe.game.Game;
-import stud.mandatory.tictactoe.model.Account;
-import stud.mandatory.tictactoe.model.Square;
 import stud.mandatory.tictactoe.game.board.Tag;
 import stud.mandatory.tictactoe.game.players.Player;
+import stud.mandatory.tictactoe.model.Account;
+import stud.mandatory.tictactoe.model.Square;
 
 public class GameController {
 	//constants for the Tags available in the game
